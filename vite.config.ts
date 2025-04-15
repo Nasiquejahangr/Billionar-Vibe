@@ -5,6 +5,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    exclude: ['lucide-react', '@vercel/speed-insights'],
   },
+  build: {
+    rollupOptions: {
+      external: ['@vercel/speed-insights/next']
+    }
+  }
 });
+
